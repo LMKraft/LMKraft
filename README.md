@@ -1,10 +1,7 @@
 - 👋 Hi, I’m @LMKraft
-- 👀 I’m interested in ...
-- 🌱 I’m currently working with Jahia
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+- 🌱 I’m currently mostly working with Jahia
 
-<!---
-LMKraft/LMKraft is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+I created this repository to share some usefull samples of Jahia 8 code.
+Those samples are based on Jahia 8.1.1.0 Enterprise Demo Package.
+
+Feel free to reuse it or comment anything you can find interesting... or bad !
