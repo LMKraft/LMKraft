@@ -31,3 +31,5 @@
         </div>
     </form>
 </div>
+
+<template:addResources type="css" resources="submitForm.css" />
