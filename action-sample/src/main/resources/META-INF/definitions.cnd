@@ -1,2 +1,14 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<lmkmix = 'https://github.com/LMKraft/mix/1.0'>
+<lmknt = 'https://github.com/LMKraft/nt/1.0'>
+
+[lmknt:submitForm] > jnt:content, lmkmix:perso
+ - action (string) mandatory
+ - redirect (weakreference) < jnt:page
+
+[lmknt:counterNodeList] > jnt:content, jmix:list, lmkmix:perso
+ + * (lmknt:counterNode)
+
+[lmknt:counterNode] > jnt:content, lmkmix:perso
+ - counter (long)

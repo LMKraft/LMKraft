@@ -3,4 +3,4 @@
 <lmkmix = 'https://github.com/LMKraft/mix/1.0'>
 <lmknt = 'https://github.com/LMKraft/nt/1.0'>
 
-[lmkmix:perso] mixin
+[lmkmix:perso] >jmix:droppableContent mixin
