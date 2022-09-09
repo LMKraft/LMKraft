@@ -8,12 +8,11 @@
 
 <p>
 	Feel free to reuse it or comment anything you can find interesting... or bad !
-
-	<ul>
-		<li>Please check Jahia website for any information : https://www.jahia.com/home/fr</li>
-		<li>Jahia Academy for resources : https://academy.jahia.com/home</li>
-	</ul>
 </p>
+<ul>
+    <li>Please check Jahia website for any information : https://www.jahia.com/home/fr</li>
+    <li>Jahia Academy for resources : https://academy.jahia.com/home</li>
+</ul>
 
 <p>
 	Working in IT since 2015, my GitHub Repo is brand new, and I juste started this personnal project.<br />
