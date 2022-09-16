@@ -7,8 +7,14 @@
  - action (string) mandatory
  - redirect (weakreference) < jnt:page
 
-[lmknt:counterNodeList] > jnt:content, jmix:list, lmkmix:perso
+[lmknt:counterNode] > jnt:content, lmkmix:perso
+ - label (string)
+ - counter (long)
+
+[lmknt:counterNodeList] > jnt:content, jmix:list, lmkmix:perso, jmix:editorialContent
+ orderable
  + * (lmknt:counterNode)
 
-[lmknt:counterNode] > jnt:content, lmkmix:perso
- - counter (long)
+[lmknt:counterListManager] > mix:title, jnt:content, lmkmix:perso, jmix:editorialContent
+ - jcr:title (string) mandatory
+ - counterList (weakreference,picker[type='counterNodeList']) < lmknt:counterNodeList

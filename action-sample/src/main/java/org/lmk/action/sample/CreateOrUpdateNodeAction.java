@@ -14,11 +14,13 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static org.jahia.api.Constants.EDIT_WORKSPACE;
@@ -37,6 +39,8 @@ public class CreateOrUpdateNodeAction extends AbstractAction{
     private static final String COUNTER_NODE_TYPE = "lmknt:counterNode";
     // property counter, to increment, found in definitions.cnd file
     private static final String COUNTER_PROPERTY_NAME = "counter";
+    // Label property found in definitions.cnd file
+    private static final String LABEL_PROPERTY_NAME = "label";
     private static final String FORM_PARAM = "field1";
 
     @Activate
@@ -58,7 +62,7 @@ public class CreateOrUpdateNodeAction extends AbstractAction{
             redirectUrl = getPageUrl(session, currentNodePath, REDIRECT_PROPERTY_NAME);
 
             // Call function to create or update node in folder
-            createOrUpdateNode(parameters, site.getSiteKey());
+            createOrUpdateNode(parameters, site.getSiteKey(), session.getLocale());
 
             LOGGER.info("Not exception caught, seems everything went well :)");
             // Return response as OK, with redirection to specified page
@@ -74,7 +78,7 @@ public class CreateOrUpdateNodeAction extends AbstractAction{
         }
     }
 
-    private void createOrUpdateNode(Map<String, List<String>> parameters, String siteKey) throws Exception{
+    private void createOrUpdateNode(Map<String, List<String>> parameters, String siteKey, Locale locale) throws Exception{
         // Retrieve form parameter
         String formProperty = getParam(parameters, FORM_PARAM);
         // Get current user edit session (he needs to have rights on the folder where we're going to create the node)
@@ -99,6 +103,13 @@ public class CreateOrUpdateNodeAction extends AbstractAction{
             JCRNodeWrapper counterNode = JCRContentUtils.getOrAddPath(editSession, counterListNode, nodename, COUNTER_NODE_TYPE);
             LOGGER.info("Node found or created : {}", counterNode.getName());
 
+            // Set the label
+            if(!counterNode.hasProperty(LABEL_PROPERTY_NAME)){
+                counterNode.setProperty(LABEL_PROPERTY_NAME, formProperty);
+                LOGGER.info("Property \"{}\" added for the node : {}", LABEL_PROPERTY_NAME, formProperty);
+            }
+
+            // Increment the counter
             if(counterNode.hasProperty(COUNTER_PROPERTY_NAME)){
                 counterNode.setProperty(COUNTER_PROPERTY_NAME, (Long.valueOf(counterNode.getPropertyAsString(COUNTER_PROPERTY_NAME)) + 1));
             }else{

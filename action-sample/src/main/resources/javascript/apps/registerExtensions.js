@@ -30,5 +30,20 @@ window.jahia.uiExtender.registry.add('callback', 'action-sampleExample', {
                 return siteKey !== 'systemsite'
             }
         });
+
+        window.jahia.uiExtender.registry.add('pickerConfiguration', 'counterNodeList', {
+            cmp: {
+                picker: window.jahia.uiExtender.registry.get('selectorType', 'ContentPicker'),
+                treeConfigs: [{
+                    rootPath: site => `/sites/${site}`,
+                    openableTypes: ['jnt:page', 'jnt:navMenuText', 'jnt:virtualsite', 'jnt:contentFolder', 'nt:folder', 'jmix:siteContent', 'jmix:browsableInEditorialPicker'],
+                    selectableTypes: ['jnt:page', 'jnt:navMenuText', 'jnt:virtualsite', 'jnt:contentFolder', 'nt:folder', 'jmix:siteContent', 'jmix:browsableInEditorialPicker'],
+                    type: 'counterNodeList',
+                }],
+                searchSelectorType: 'lmknt:counterNodeList',
+                listTypesTable: ['lmknt:counterNodeList'],
+                selectableTypesTable: ['lmknt:counterNodeList']
+            }
+        })
     }
 });
