@@ -27,7 +27,7 @@
             <input type="text" name="field3" />
         </div>
         <div class="field submit-btn">
-            <input type="submit" value="Send" />
+            <input type="submit" value="Send" class="${cssDisabledForm}" ${disabledForm}/>
         </div>
     </form>
 </div>

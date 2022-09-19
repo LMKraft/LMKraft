@@ -1,0 +1,37 @@
+.counter-node {
+    border-bottom: 1px solid #333;
+    padding: 10px 0px;
+    border-color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    place-content: space-around;
+}
+
+.counter-node .counter-node-info,
+.counter-node form {
+    width: 50%;
+}
+
+.counter-node .counter-node-info .label,
+.counter-node .counter-node-info .counter{
+    font-size: 16px;
+}
+.counter-node .counter-node-info .label {
+    color: #333;
+    font-weight: bold;
+}
+
+.counter-node form input[type='submit']{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 40px;
+    border: 3px solid #333;
+    border-radius: 25px;
+    background: white;
+}
+.counter-node form input[type='submit']:hover,
+.counter-node form input[type='submit']:focus{
+    color: white;
+    background: #333
+}

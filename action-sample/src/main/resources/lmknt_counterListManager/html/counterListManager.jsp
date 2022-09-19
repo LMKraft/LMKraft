@@ -3,8 +3,10 @@
 <jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title" />
 <jcr:nodeProperty node="${currentNode}" name="counterList" var="counterList" />
 
-<h1>${title}</h1>
-
 <div class="counter-list">
+    <h2>${title}</h2>
+
     <template:module path="counter-list" node="${counterList.node}" />
 </div>
+
+<template:addResources type="css" resources="counterListManager.css" />
